@@ -23,3 +23,13 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+ 
+ /* First checks if Bungee is available, falls back to Source Sans 3, then any sans-serif */
+nav .title { 
+  font-family: "Bungee", "Source Sans 3", sans-serif;     
+  font-weight: 400;
+  font-style: normal;
+  color:black;
+  font-size: 130px;
+  background-color: #845e20;
+}
