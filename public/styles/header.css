@@ -1,21 +1,21 @@
-/* Styles associated with the Nav-bar at the top */
+/* Styles associated with the header section*/
 
 header{
-  height: 400px;
-  width: 100%;
-  background-color: orange;
-  background-image: url("../images/ps-neutral.png"); 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
-  border: dashed;
-  color: green;   
+  height: 400px;
+  width: 100%;
+  background-color: orange;
+  background-image: url("../images/ps-neutral.png"); 
+
+  border: 2px dashed green;
 }
 
 header div{
-  outline: 1px black dashed;
+  outline: 2px black dashed;
 }
 
 /* header img{

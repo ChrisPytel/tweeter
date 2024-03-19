@@ -4,10 +4,10 @@ nav {
   color: white;
   height: 120px;
   background: #4056A1;
-  border: dashed;
-  border-color: black;
   width: 100%;
   position: fixed;  
+
+  /* border: 2px dashed black; */
 }
 
 .nav-container{
@@ -16,12 +16,10 @@ nav {
   padding-left: 1.5em;    
   padding-right: 1.5em;
   padding-top: 1.5em;
-  border: dashed;
-  border-width: 4px;
+
   
   /* z-index: 1; */
-  /* width: 90%;
-  margin: 0 auto; */
+  /* border: dashed 4px magenta; */  
 }
 
 .nav-title { 

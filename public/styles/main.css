@@ -1,0 +1,37 @@
+/* Styles associated with the main section*/
+
+main{
+  display: flex;
+}
+
+main p{
+  border: dashed orangered 2px;
+}
+
+main h3{
+  display: inline;
+  border: 2px fuchsia dashed;
+}
+
+.wrapper { /* leaves 5% margin on either sides of page*/
+  border: solid greenyellow;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.centered{
+  flex-direction: column;
+  justify-content: center;
+  color: #16D6D1;
+}
+
+main a{
+  background-color: #16D6D1;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 12px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #333;
+  text-transform: uppercase;
+}
