@@ -1,0 +1,24 @@
+/* Styles associated with the Nav-bar at the top */
+
+header{
+  height: 520px;
+  width: 100%;
+  background-color: orange;
+  border: dashed;
+  color: green;  
+}
+
+header div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 1px black dashed;
+}
+
+header img{
+  padding-top: 140px;
+}
+
+header h2{
+  color: white;
+}

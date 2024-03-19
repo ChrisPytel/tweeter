@@ -3,17 +3,23 @@
 nav {
   color: white;
   height: 120px;
-  background-color: #4056A1;
+  background: #4056A1;
+  border: dashed;
+  border-color: black;
+  width: 100%;
+  position: fixed;  
 }
 
 .nav-container{
   display: flex;
-  justify-content: space-between;  
+  justify-content: space-between;    
   padding-left: 1.5em;    
   padding-right: 1.5em;
-  padding-top: 1em;
-  /* border: dashed;
-  border-width: 4px; */
+  padding-top: 1.5em;
+  border: dashed;
+  border-width: 4px;
+  
+  /* z-index: 1; */
   /* width: 90%;
   margin: 0 auto; */
 }
@@ -28,12 +34,12 @@ nav {
   display:flex;
   flex-direction: column;  
   font-size: 1em;
-    /* outline: 3px solid cyan;   */
+    outline: 3px solid cyan;  
 }
 
 nav i{
   padding-top: 0.25em;  
   align-self: center;
-  /* border: dashed;
-  color: red; */
+  border: dashed;
+  color: red;
 }
