@@ -1,24 +1,29 @@
 /* Styles associated with the Nav-bar at the top */
 
 header{
-  height: 520px;
+  height: 400px;
   width: 100%;
   background-color: orange;
-  border: dashed;
-  color: green;  
-}
-
-header div{
+  background-image: url("../images/ps-neutral.png"); 
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+
+  border: dashed;
+  color: green;   
+}
+
+header div{
   outline: 1px black dashed;
 }
 
-header img{
+/* header img{
   padding-top: 140px;
-}
+} */
 
 header h2{
   color: white;
+  padding: 0;
+  margin: 0;
 }

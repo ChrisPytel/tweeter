@@ -30,16 +30,15 @@ nav {
   font-size: 2em;
 }
 
-.navbox{
+.nav-new-tweet{
   display:flex;
   flex-direction: column;  
   font-size: 1em;
-    outline: 3px solid cyan;  
+  /* outline: 3px solid cyan;   */
 }
 
 nav i{
   padding-top: 0.25em;  
   align-self: center;
-  border: dashed;
   color: red;
 }
