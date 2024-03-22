@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="styles/header.css" type="text/css" />
     <link rel="stylesheet" href="styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="styles/new-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -27,10 +28,8 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
   </head>
-
-
   <body>
-    <!-- Top nav bar (fixed) -->
+
     <nav>
       <div class="nav-container">
         <span class="nav-title">tweeter</span>
@@ -50,21 +49,29 @@
       </div>
   </header>  
 
+  
+    <main class="wrapper">
 
-  <main class="wrapper">
-    <div class="centered">
-      <h3>Wow heres a pretty cool subsection!</h3>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia pariatur doloribus ratione deserunt nesciunt at consectetur dolore sint quibusdam voluptatem ex eligendi quas optio sapiente, voluptate sequi eius. Autem commodi tenetur repudiandae cupiditate, necessitatibus officiis quod harum nemo recusandae. Quae.</p>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia pariatur doloribus ratione deserunt nesciunt at consectetur dolore sint quibusdam voluptatem ex eligendi quas optio sapiente, voluptate sequi eius. Autem commodi tenetur repudiandae cupiditate, necessitatibus officiis quod harum nemo recusandae. Quae.</p>
-      <a href="https://www.zeldadungeon.net/majoras-mask-walkthrough/">Read More </a>
-    </div>
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form method="POST" action="/tweets"> 
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div>
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+            
+      <!-- <div class="centered">  
+        <h3>Wow heres a pretty cool subsection!</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia pariatur doloribus ratione deserunt nesciunt at consectetur dolore sint quibusdam voluptatem ex eligendi quas optio sapiente, voluptate sequi eius. Autem commodi tenetur repudiandae cupiditate, necessitatibus officiis quod harum nemo recusandae. Quae.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia pariatur doloribus ratione deserunt nesciunt at consectetur dolore sint quibusdam voluptatem ex eligendi quas optio sapiente, voluptate sequi eius. Autem commodi tenetur repudiandae cupiditate, necessitatibus officiis quod harum nemo recusandae. Quae.</p>
+        <a href="https://www.zeldadungeon.net/majoras-mask-walkthrough/">Read More </a>
+      </div>   -->
+    </main>
 
 
-
-
-  </main>
-
-    <!-- Page-specific (main) content here -->
-    <main class="container"></main>
   </body>
 </html>
