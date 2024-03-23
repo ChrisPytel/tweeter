@@ -2,6 +2,8 @@
 
 main{
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main p{
@@ -9,20 +11,21 @@ main p{
 }
 
 main h3{
-  display: inline;
+  /* display: inline; */
   border: 2px fuchsia dashed;
 }
 
 .wrapper { /* leaves 5% margin on either sides of page*/
-  border: solid greenyellow;
+  /* border: solid greenyellow; */
   width: 90%;
   margin: 0 auto;
+  background-color: inherit;
 }
 
 .centered{
-  flex-direction: column;
+  text-align: center;
   justify-content: center;
-  color: #16D6D1;
+  color: #331dc2;
 }
 
 main a{
