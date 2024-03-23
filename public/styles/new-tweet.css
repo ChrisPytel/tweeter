@@ -1,0 +1,55 @@
+/* Styles associated with the new tweet section in the main area*/
+
+.new-tweet{
+  color: #4d4d4d;
+  width: 90%;
+  /* border: 3px solid orange; */
+}
+
+.new-tweet h2{
+
+}
+
+
+
+
+main textarea{
+
+
+}
+
+
+
+.divider{
+  width: 100%;
+  height: .2em;
+  margin: 0.8em auto;
+  background: #4d4d4d;
+
+}
+
+.below-line{
+  display: flex;
+  justify-content: space-between;
+  font-family: "Bungee", "Source Sans 3", sans-serif;    
+}
+
+button{
+  background: #4056A1;
+  color: white;
+  font-size: 1.2em;
+  padding: 0.5em 1em ;
+  border: none;
+  border-radius: 0.5em;
+}
+
+button:hover{
+  background: #ffffff;
+  color: #00476A;    
+  transition: all 0.3s ease-in;
+}
+
+.counter{ 
+  font-weight: 400;  
+  font-size: 1.2em;
+}
