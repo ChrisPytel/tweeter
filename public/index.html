@@ -26,7 +26,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="./scripts/client.js"></script>
+    <script type="text/javascript" src="./scripts/composer-char-counter.js"></script>
+
   </head>
   <body>
 
@@ -55,7 +57,7 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form method="POST" action="/tweets"> 
-          <textarea placeholder="What are you tweeting about?" id="tweet-text"></textarea>
+          <textarea placeholder="What are you tweeting about?" name="text" id="tweet-text"></textarea>
           <div class="divider"></div>
           <div class="below-line">
             <button class="tweet-button" type="submit">Tweet</button>
