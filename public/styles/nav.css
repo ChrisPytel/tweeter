@@ -1,4 +1,5 @@
 /* Styles associated with the Nav-bar at the top */
+/* AKA the blue bar at the top */
 
 nav {
   color: white;
@@ -6,7 +7,6 @@ nav {
   background: #4056A1;
   width: 100%;
   position: fixed;  
-
   /* border: 2px dashed black; */
 }
 
@@ -16,10 +16,7 @@ nav {
   padding-left: 1.5em;    
   padding-right: 1.5em;
   padding-top: 1.5em;
-
-  
-  /* z-index: 1; */
-  /* border: dashed 4px magenta; */  
+  /* outline: dashed 4px magenta; */  
 }
 
 .nav-title { 
@@ -30,7 +27,7 @@ nav {
 
 .nav-new-tweet{
   display:flex;
-  flex-direction: column;  
+  flex-direction: column;
   font-size: 1em;
   /* outline: 3px solid cyan;   */
 }

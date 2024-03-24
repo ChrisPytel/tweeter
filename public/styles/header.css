@@ -1,28 +1,28 @@
 /* Styles associated with the header section*/
+/* AKA the big ORANGE section */
 
-header{
+.orange-bg{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
-  height: 400px;
+  height: 540px;
   width: 100%;
   background-color: orange;
   background-image: url("../images/ps-neutral.png"); 
-
-  border: 2px dashed green;
+  /* border: 2px dashed green; */
 }
 
-header div{
+/* .orange-bg div{
   outline: 2px black dashed;
-}
-
-/* header img{
-  padding-top: 140px;
 } */
 
-header h2{
+.orange-bg img{
+  padding-top: 140px;
+}
+
+.orange-bg h2{
   color: white;
   padding: 0;
   margin: 0;

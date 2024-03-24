@@ -1,14 +1,15 @@
 /* Styles associated with the main section*/
 
-main{
+
+/* main{
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-main p{
+/* main p{
   border: dashed orangered 2px;
-}
+} */
 
 main h3{
   /* display: inline; */
@@ -16,8 +17,8 @@ main h3{
 }
 
 .wrapper { /* leaves 5% margin on either sides of page*/
-  /* border: solid greenyellow; */
-  width: 90%;
+  border: solid greenyellow;
+  width: 80%;
   margin: 0 auto;
   background-color: inherit;
 }
