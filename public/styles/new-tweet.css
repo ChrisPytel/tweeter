@@ -47,12 +47,13 @@ button{
 }
 
 button:hover{
-  background: #ffffff;
-  color: #00476A;    
-  transition: all 0.3s ease-in;
+  background: #5ec9ff;
+  color: #ffffff;    
+  transition: all 0.2s ease-in;
 }
 
 .counter{ 
+  color: #4056A1;  
   font-weight: 400;  
   font-size: 1.2em;
 }
