@@ -1,11 +1,14 @@
 /* Styles associated with the tweets section*/
 
-
 .tweet-container .tweet{
   border: 5px solid grey;
   padding: 1em;
   margin: 2em auto; 
   background-color: #e7e7e7;
+}
+
+.tweet-container .tweet:hover{
+  box-shadow: 6px 6px 1px #95c2ec;
 }
 
 .tweet-container header{
@@ -15,7 +18,11 @@
 }
 
 .tweet-container header .handle{  
-  margin-left: 50%; /* Forces <i> elements to remaining 30% on right side */
+  margin-left: 45%; 
+}
+
+.tweet-container header .person-title{  
+  margin-left: 5%; 
 }
 
 .tweet-container header img{

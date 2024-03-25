@@ -1,26 +1,10 @@
 /* Styles associated with the main section*/
 
-
-/* main{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* main p{
-  border: dashed orangered 2px;
-} */
-
-main h3{
-  /* display: inline; */
-  border: 2px fuchsia dashed;
-}
-
-.wrapper { /* leaves 5% margin on either sides of page*/
-  border: solid greenyellow;
+.wrapper { /* leaves 10% margin on either sides of element and centers it*/
   width: 80%;
   margin: 0 auto;
   background-color: inherit;
+  /* border: solid greenyellow; */
 }
 
 .centered{
