@@ -1,0 +1,45 @@
+/* Styles associated with the tweets section*/
+
+
+.tweet-container .tweet{
+  border: 5px solid grey;
+  padding: 1em;
+  margin: 2em auto; 
+  background-color: #e7e7e7;
+}
+
+.tweet-container header{
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+}
+
+.tweet-container header .handle{  
+  margin-left: 50%; /* Forces <i> elements to remaining 30% on right side */
+}
+
+.tweet-container header img{
+  width: 4em;
+  height: 4em;
+}
+
+.tweet-container footer{
+  display: flex;
+  justify-content: space-between;
+  /* border: 5px solid peachpuff; */
+}
+
+.tweet-container footer h6{
+  margin: 0;
+  margin-right: 70%; /* Forces <i> elements to remaining 30% on right side */
+}
+
+.tweet-container .handle{
+color: #85afd6;
+}
+
+.tweet-container i:hover{
+  color: #ffb700;
+  text-shadow: 3px 3px  #636363;
+  transition: all 0.2s ease-in;
+}
