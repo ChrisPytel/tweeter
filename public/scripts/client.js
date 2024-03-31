@@ -37,7 +37,7 @@ const tempTweetData = [{
 }
 ];
 
-
+//------------------  Section for Functions ------------------
 
 const createTweetElement = function(tweetObj) {  
   console.log(`Running createTweetElement`);
@@ -62,7 +62,6 @@ const createTweetElement = function(tweetObj) {
     </footer> 
   </article>
   `);
-
   console.log(`Our markupStructure is: `, markupStructure);
   return markupStructure;
 };
@@ -70,52 +69,34 @@ const createTweetElement = function(tweetObj) {
 
 const renderTweets = function(allTweets) {
   // console.log(`tweetLibrary is: `, allTweets);
-
   allTweets.forEach((tweet,index) => {
     console.log(`Tweet #${index+1} is:`, tweet);
     // calls createTweetElement for each tweet
     const element = createTweetElement(tweet);
     // takes return value and appends it to the tweets container
     $('.tweet-container').append(element);        
-  });
-   
-
-
-// --------- hardcoded test demo ---------
-// const $tweetA = $(`<article class="tweet">Hello world</article>`);
-// $('.tweet-container').append($tweetA);
+  }); 
 };
+
+
+
 
 
 renderTweets(tempTweetData); // begins process of loading all tweets
 
+//------------------  Section for Listeners ------------------
+
+//listens to the form for when submit called on the button corresponding to form
+$('#tweet-form').on('submit', function(event){
+  console.log( "Handler for `submit` called." );
+  event.preventDefault();
+
+  $.ajax('/tweets', {method: 'POST'});
+  console.log(`$(this) is: `, $(this));
+  const $tweetInput = $(this).serialize();  
+  console.log(`$data is: `, $tweetInput);
+
+  $.post('/tweets', $tweetInput, console.log('sent to /tweets'));
+});
+
 }); // --------- end of $(document).ready ---------
-
-
-
-
-
-
-//my current index.HTML Structure for articles
-
-/* 
-    <article class="tweet">
-  <header>
-    <img src="/images/profile-hex.png">   
-    <h3 class="person-title">Queen Victoria</h3>
-    <h3 class="handle">@BritanniaRules</h3>
-  </header>
-  <div>
-    <p>We are not interested in the possibilities of defeat. They do not exist.</p>
-  </div>
-  <div class="divider">
-  </div>
-  <footer>
-    <h6>X days ago</h6>
-    <i class="fa-solid fa-flag"></i>
-    <i class="fa-solid fa-retweet"></i>
-    <i class="fa-solid fa-heart"></i>
-  </footer> 
-</article>
-
-*/
