@@ -25,11 +25,12 @@
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
+    
     <!-- App JS -->
     <script type="text/javascript" src="./scripts/client.js"></script>
     <script type="text/javascript" src="./scripts/composer-char-counter.js"></script>
-
+<script></script>
   </head>
   <body>
 
@@ -57,19 +58,21 @@
 
       <section class="new-tweet">
         <h2>Alright peeps listen up</h2>
-        <form method="POST" action="/tweets"> 
-          <textarea placeholder="I gotta tell ya somethin" name="text" id="tweet-text"></textarea>
+        <form id="tweet-form" method="POST" action="/tweets"> 
+          <textarea placeholder="I gotta tell ya something..." name="text" id="tweet-text"></textarea>
           <div class="divider"></div>
           <div class="below-line">
-            <button class="tweet-button" type="submit">Tweet</button>
+            <button id="tweet-button" class="tweet-button" type="submit">Tweet</button>
             <output class="counter" name="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
 
-      <section class="tweet-container wrapper">
+      <section class="tweet-container">
 
-        <article class="tweet">
+        <!--  Hard Coded HTML for Tweets
+          
+          <article class="tweet">
           <header>
             <img src="/images/profile-hex.png">   
             <h3 class="person-title">Julius Ceasar</h3>
@@ -105,7 +108,7 @@
           <i class="fa-solid fa-retweet"></i>
           <i class="fa-solid fa-heart"></i>
         </footer> 
-    </article>
+    </article> -->
       
       </section>             
  
