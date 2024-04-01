@@ -42,8 +42,8 @@ $(document).ready(function() {
   // console.log(`tweetLibrary is: `, allTweets);
     allTweets.forEach((tweet,index) => {
       // console.log(`Tweet #${index + 1} is:`, tweet);
-      const element = createTweetElement(tweet); // calls createTweetElement for each tweet
-      $('.tweet-container').append(element); // takes return value and appends it to the tweets container
+      const element = createTweetElement(tweet); 
+      $('.tweet-container').prepend(element); // takes return value and appends it to the top of the tweets container
     });
   };
 
@@ -78,9 +78,11 @@ $(document).ready(function() {
     console.log(`Our $tweetInput is:`, $tweetInput);
 
 
-    if ($tweetInput === `text=` || $tweetInput === null) {
+    const tweetText = $(this).find('textarea').val().trim();
+
+    if (tweetText.length === 0) {
       alert("Cannot submit an empty tweet!");      
-    } else if ($tweetInput.length > 140 + 5) { //added +5 to represent characters of  `text=`
+    } else if ($tweetInput.length > 140) {
       alert("Tweet is over the character limit!");       
     } else {
       $.ajax({
@@ -88,7 +90,9 @@ $(document).ready(function() {
         method: 'POST',  // HTTP methods are: 'GET', 'POST', 'PUT', 'DELETE'
         data: $tweetInput,
         success: function(){
-          console.log(`$.ajax POST the following data to our '${this.url}' route:\n`, this.data);  
+          console.log(`$.ajax POST the following data to our '${this.url}' route:\n`, this.data);
+          $('.tweet-container').empty(); // Purges the old tweets from
+          loadTweets(); //Re-loads the tweets again from the updated library
         },
         error: function(error){
           console.error(`$.ajax ${this.method} request error on route: ${this.url}!\nDetails:`, error);
@@ -98,6 +102,6 @@ $(document).ready(function() {
     }
     
 
-  });   // --------- end of #tweet-form listener ---------  
+  }); // --------- end of #tweet-form listener ---------  
 
 }); // --------- end of $(document).ready ---------
