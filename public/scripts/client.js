@@ -71,17 +71,16 @@ $(document).ready(function() {
 
 
   const loadTweets = function() {
-    const route = `/tweets`;
-    $.ajax({
-      url: route,
+  $.ajax({
+      url: `/tweets`,
       method: 'GET',
-      success: (tweetLibraryData) => {
+      success: function(tweetLibraryData) {
         console.log(`tweetLibraryData is: `, tweetLibraryData);
         renderTweets(tweetLibraryData);   // passes in library data to render instead of temporary code
-      // renderTweets(tempTweetData);     // begins process of loading all tweets (BEFORE AJAX)
+        // renderTweets(tempTweetData);     // begins process of loading all tweets (BEFORE AJAX)
       },
-      error: (error) => {
-        console.log(`$.ajax GET request error when getting info from ${route}`, error);
+      error: function(error) {
+        console.error(`$.ajax ${this.method} request error on route: ${this.url}!\nDetails:`, error);
       }
     });
   };
@@ -91,17 +90,29 @@ $(document).ready(function() {
 
   //------------------  Section for Listeners ------------------
 
-  //listens to the form for when submit called on the button corresponding to form
+  //listens for when submit is called on the button corresponding to the form
   $('#tweet-form').on('submit', function(event) {
     console.log("Handler for `submit` called.");
     event.preventDefault();
-
-    $.ajax('/tweets', {method: 'POST'});
-    console.log(`$(this) is: `, $(this));
     const $tweetInput = $(this).serialize();
-    console.log(`$data is: `, $tweetInput);
 
-    $.post('/tweets', $tweetInput, console.log('sent to /tweets'));
+    // console.log(`Our $(this) is:`, $(this));
+    // console.log(`Our $tweetInput is:`, $tweetInput);
+    
+    
+    $.ajax({
+      url: `/tweets`,
+      method: 'POST',  // HTTP methods are: 'GET', 'POST', 'PUT', 'DELETE'
+      data: $tweetInput,
+      success: function(){
+        console.log(`$.ajax POST the following data to our '${this.url}' route:\n`, this.data);  
+      },
+      error: function(error){
+        console.error(`$.ajax ${this.method} request error on route: ${this.url}!\nDetails:`, error);
+      }
+    });
   });
+  // $.post('/tweets', $tweetInput, console.log('sent to /tweets'));  //jquery POST shorthand without error handling
+
 
 }); // --------- end of $(document).ready ---------
