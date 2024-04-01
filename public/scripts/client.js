@@ -12,6 +12,15 @@ $(document).ready(function() {
 
   //------------------  Section for Functions ------------------
 
+  //Cross side scripting (XSS) escape function demo'd by LHL
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    console.log("After Re-encoding, processed text is:\n", div.innerHTML);
+    return div.innerHTML;
+  };
+
+  //for creating the HTML markup to be appended later to the webpage
   const createTweetElement = function(tweetObj) {
     const markupStructure = $(`
   <article class="tweet">
@@ -21,7 +30,7 @@ $(document).ready(function() {
       <h3 class="handle">${tweetObj.user.handle}</h3>
     </header>
     <div>
-      <p>${tweetObj.content.text}</p>
+      <p>${escape(tweetObj.content.text)}</p>
     </div>
     <div class="divider">
     </div>
@@ -77,6 +86,7 @@ $(document).ready(function() {
     const $tweetInput = $(this).serialize();    
     console.log(`Our $tweetInput is:`, $tweetInput);
 
+    console.log(`Our $(this) is: `, $(this));
 
     const tweetText = $(this).find('textarea').val().trim();
 
