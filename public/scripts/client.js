@@ -4,33 +4,11 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+// const tweetLengthCap = require('./composer-char-counter'); //couldnt import correctly???
+
 $(document).ready(function() {
 
-  /* Temporary Datastructure before AJAX Server fetching
 
-  const tempTweetData = [{
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
-    "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Queen Victoria",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@BritanniaRules"
-    },
-    "content": {
-      "text": "We are not interested in the possibilities of defeat. They do not exist."
-    },
-    "created_at": 1711379442671
-  }
-  ]; */
 
   //------------------  Section for Functions ------------------
 
@@ -94,25 +72,32 @@ $(document).ready(function() {
   $('#tweet-form').on('submit', function(event) {
     console.log("Handler for `submit` called.");
     event.preventDefault();
-    const $tweetInput = $(this).serialize();
 
-    // console.log(`Our $(this) is:`, $(this));
-    // console.log(`Our $tweetInput is:`, $tweetInput);
-    
-    
-    $.ajax({
-      url: `/tweets`,
-      method: 'POST',  // HTTP methods are: 'GET', 'POST', 'PUT', 'DELETE'
-      data: $tweetInput,
-      success: function(){
-        console.log(`$.ajax POST the following data to our '${this.url}' route:\n`, this.data);  
-      },
-      error: function(error){
-        console.error(`$.ajax ${this.method} request error on route: ${this.url}!\nDetails:`, error);
-      }
-    });
-  });
-  // $.post('/tweets', $tweetInput, console.log('sent to /tweets'));  //jquery POST shorthand without error handling
+    // console.log(`Our this is: `, this); // the target of our event handler
+    const $tweetInput = $(this).serialize();    
+    console.log(`Our $tweetInput is:`, $tweetInput);
 
+
+    if ($tweetInput === `text=` || $tweetInput === null) {
+      alert("Cannot submit an empty tweet!");      
+    } else if ($tweetInput.length > 140 + 5) { //added +5 to represent characters of  `text=`
+      alert("Tweet is over the character limit!");       
+    } else {
+      $.ajax({
+        url: `/tweets`,
+        method: 'POST',  // HTTP methods are: 'GET', 'POST', 'PUT', 'DELETE'
+        data: $tweetInput,
+        success: function(){
+          console.log(`$.ajax POST the following data to our '${this.url}' route:\n`, this.data);  
+        },
+        error: function(error){
+          console.error(`$.ajax ${this.method} request error on route: ${this.url}!\nDetails:`, error);
+        }
+      });
+      // $.post('/tweets', $tweetInput, console.log('sent to /tweets'));  //jquery POST shorthand without error handling
+    }
+    
+
+  });   // --------- end of #tweet-form listener ---------  
 
 }); // --------- end of $(document).ready ---------
