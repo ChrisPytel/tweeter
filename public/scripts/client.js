@@ -13,12 +13,28 @@ $(document).ready(function() {
   //------------------  Section for Functions ------------------
 
   //Cross side scripting (XSS) escape function demo'd by LHL
-  const escape = function (str) {
-    let div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    console.log("After Re-encoding, processed text is:\n", div.innerHTML);
-    return div.innerHTML;
+  // const escape = function (str) {
+  //   let div = document.createElement("div");
+  //   div.appendChild(document.createTextNode(str));
+  //   console.log("After Re-encoding, processed text is:\n", div.innerHTML);
+  //   return div.innerHTML;
+  // };
+
+  /* After Re-encoding, processed text is:
+  
+  &lt;script&gt;
+   $("body").empty();
+   &lt;/script&gt;
+  */
+
+  //My version of the XSS escape 
+  const myEsapeFn = function(string) {
+    const openAngleEncoded = string.replace(/</g, "&lt;");
+    const bothAnglesEncoded = openAngleEncoded.replace(/>/g, "&gt;");
+    console.log("After Re-encoding, processed text is:\n", bothAnglesEncoded);
+    return bothAnglesEncoded;
   };
+  
 
   //for creating the HTML markup to be appended later to the webpage
   const createTweetElement = function(tweetObj) {
@@ -30,7 +46,7 @@ $(document).ready(function() {
       <h3 class="handle">${tweetObj.user.handle}</h3>
     </header>
     <div>
-      <p>${escape(tweetObj.content.text)}</p>
+      <p>${myEsapeFn(tweetObj.content.text)}</p>
     </div>
     <div class="divider">
     </div>
