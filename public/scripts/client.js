@@ -29,10 +29,7 @@ $(document).ready(function() {
 
   //My version of the XSS escape 
   const myEsapeFn = function(string) {
-    const openAngleEncoded = string.replace(/</g, "&lt;");
-    const bothAnglesEncoded = openAngleEncoded.replace(/>/g, "&gt;");
-    console.log("After Re-encoding, processed text is:\n", bothAnglesEncoded);
-    return bothAnglesEncoded;
+    return string.replace(/</g, "&lt;").replace(/>/g, "&gt;");
   };
   
 
@@ -41,8 +38,10 @@ $(document).ready(function() {
     const markupStructure = $(`
   <article class="tweet">
     <header>
-      <img src= ${tweetObj.user.avatars}>   
-      <h3 class="person-title">${tweetObj.user.name}</h3>
+      <div class="profile-container">
+        <img src= ${tweetObj.user.avatars}>   
+        <h3 class="person-title">${tweetObj.user.name}</h3>        
+      </div>
       <h3 class="handle">${tweetObj.user.handle}</h3>
     </header>
     <div>
@@ -52,9 +51,11 @@ $(document).ready(function() {
     </div>
     <footer>
       <h6>${timeago.format(tweetObj.created_at)}</h6>
-      <i class="fa-solid fa-flag"></i>
-      <i class="fa-solid fa-retweet"></i>
-      <i class="fa-solid fa-heart"></i>
+      <div>
+        <i class="fa-solid fa-flag"></i>
+        <i class="fa-solid fa-retweet"></i>
+        <i class="fa-solid fa-heart"></i> 
+      </div>
     </footer> 
   </article>
   `);
@@ -106,10 +107,32 @@ $(document).ready(function() {
 
     const tweetText = $(this).find('textarea').val().trim();
 
-    if (tweetText.length === 0) {
-      alert("Cannot submit an empty tweet!");      
+    // notification = document.querySelector('.input-notification');
+
+
+    if (tweetText.length === 0) {      
+      console.log(`contents empty`);
+
+      $(`.input-notification`)
+      .append(`<p>Cannot submit an empty tweet!</p>`)
+      .css({
+        'display': 'flex',
+        'justify-content': 'center',
+        'align-items': 'center',
+        'margin': '20px 0',
+        'height': '50px',
+        'background-color': '#e61339',
+        'color': 'white',
+        'font-size': '20px',
+        'font-weight': 'bold',
+        'letter-spacing' : '2px',
+        'border-radius': '12px'
+      });
+
+      // alert("Cannot submit an empty tweet!");  //old alert message
     } else if ($tweetInput.length > 140) {
-      alert("Tweet is over the character limit!");       
+      alert("Tweet is over the character limit!");   
+
     } else {
       $.ajax({
         url: `/tweets`,
