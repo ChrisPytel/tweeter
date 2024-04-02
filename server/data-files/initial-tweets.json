@@ -1,14 +1,14 @@
 [
   {
     "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@RD"
+      "name": "Cleopatra",
+      "avatars": "https://i.imgur.com/3GvwNBf.png",
+      "handle": "@Queen_of_da_nile"
     },
     "content": {
-      "text": "Je pense , donc je suis"
+      "text": "We are plentiful in dyes and incense, and can trade you in exchange for wine and silk."
     },
-    "created_at": 1711487962775
+    "created_at": 1711493906736
   },
   {
     "user": {
@@ -17,31 +17,9 @@
       "handle": "@peaceful_G"
     },
     "content": {
-      "text": "Anger is the enemy of non-violence and pride is a monster that swallows it up."
+      "text": "Anger is the enemy of non-violence and pride is a monster that swallows it up. (Brb gonna build some nukes)"
     },
-    "created_at": 1711574362775
-  },
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1711660762775
-  },
-  {
-    "user": {
-      "name": "Jan III Sobieski",
-      "avatars": "https://i.imgur.com/5fUVPRP.png",
-      "handle": "@Sobieski_III"
-    },
-    "content": {
-      "text": "We must free the city of Vienna, Our allies need our assistance!"
-    },
-    "created_at": 1711747162775
+    "created_at": 1711580306736
   },
   {
     "user": {
@@ -52,18 +30,18 @@
     "content": {
       "text": "We are not interested in the possibilities of defeat. They do not exist."
     },
-    "created_at": 1711833562775
+    "created_at": 1711666706736
   },
   {
     "user": {
-      "name": "Isabel de Castilla",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@Isabella_1"
+      "name": "Jan III Sobieski",
+      "avatars": "https://i.imgur.com/2WZtOD6.png",
+      "handle": "@Sobieski_III"
     },
     "content": {
-      "text": "Send our ships to explore the new world!"
+      "text": "We must free the city of Vienna, Our allies need our assistance!"
     },
-    "created_at": 1711919962775
+    "created_at": 1711753106736
   },
   {
     "user": {
@@ -74,6 +52,28 @@
     "content": {
       "text": "Acta, non verba, Carthago delenda est. Veni, vidi, vici!"
     },
-    "created_at": 1712006362775
+    "created_at": 1711839506736
+  },
+  {
+    "user": {
+      "name": "George Washington",
+      "avatars": "https://i.imgur.com/73hZDYK.png",
+      "handle": "@potus"
+    },
+    "content": {
+      "text": "Hey Benjamin, lets totally throw this tea in the harbour LOL!"
+    },
+    "created_at": 1711925906736
+  },
+  {
+    "user": {
+      "name": "Isabel de Castilla",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@Isabella_1"
+    },
+    "content": {
+      "text": "Envía nuestros barcos al oeste para explorar las tierras desconocidas."
+    },
+    "created_at": 1712012306736
   }
 ]
