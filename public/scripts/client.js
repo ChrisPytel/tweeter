@@ -92,6 +92,47 @@ $(document).ready(function() {
   loadTweets(); // begins process of loading all tweets using AJAX logic
 
 
+  const displayNotification = function(message) {
+    $(`.input-notification`) //display the element and overrides styling
+    .css({
+      'display': 'flex',
+      'justify-content': 'center',
+      'align-items': 'center',
+      'margin': '30px 0',
+      'height': '60px',
+      'background-color': '#e61339',
+      'color': 'white',
+      'font-size': '1em',
+      'letter-spacing' : '2px',
+      'border-radius': '12px'
+    });
+
+    let initialDelay = 0; //delay before writing begins
+    let writeSpeed = 50;
+    
+    //performs a check to check if message was written already
+    if (!displayNotification.msgWriteCount || displayNotification.msgWriteCount === 0) {
+      displayNotification.msgWriteCount = 0;
+      for (const char of message) {
+        setTimeout(() => {
+          if(char === " "){
+            $(`.input-notification`).append(`<h6>_</h6>`);
+          }else{
+            $(`.input-notification`).append(`<p>${char}</p>`);
+          }
+        }, initialDelay)  
+        initialDelay = initialDelay + writeSpeed;
+      }  
+      displayNotification.msgWriteCount++; 
+    } 
+    else if(displayNotification.msgWriteCount > 0){
+      $(`.input-notification`).empty() //clears the last message
+      displayNotification.msgWriteCount = 0;
+      displayNotification(message); //recursively sends back the message to re-render
+    }
+  };
+
+
   //------------------  Section for Listeners ------------------
 
   //listens for when submit is called on the button corresponding to the form
@@ -102,37 +143,16 @@ $(document).ready(function() {
     // console.log(`Our this is: `, this); // the target of our event handler
     const $tweetInput = $(this).serialize();    
     console.log(`Our $tweetInput is:`, $tweetInput);
-
     console.log(`Our $(this) is: `, $(this));
-
     const tweetText = $(this).find('textarea').val().trim();
 
-    // notification = document.querySelector('.input-notification');
-
-
     if (tweetText.length === 0) {      
-      console.log(`contents empty`);
-
-      $(`.input-notification`)
-      .append(`<p>Cannot submit an empty tweet!</p>`)
-      .css({
-        'display': 'flex',
-        'justify-content': 'center',
-        'align-items': 'center',
-        'margin': '20px 0',
-        'height': '50px',
-        'background-color': '#e61339',
-        'color': 'white',
-        'font-size': '20px',
-        'font-weight': 'bold',
-        'letter-spacing' : '2px',
-        'border-radius': '12px'
-      });
-
       // alert("Cannot submit an empty tweet!");  //old alert message
-    } else if ($tweetInput.length > 140) {
-      alert("Tweet is over the character limit!");   
+      displayNotification("Cannot submit an empty tweet!");
 
+    } else if ($tweetInput.length > 140) {
+      // alert("Tweet is over the character limit!");   //old alert message
+      displayNotification("Tweet is over the character limit!");
     } else {
       $.ajax({
         url: `/tweets`,
@@ -140,6 +160,7 @@ $(document).ready(function() {
         data: $tweetInput,
         success: function(){
           console.log(`$.ajax POST the following data to our '${this.url}' route:\n`, this.data);
+          $(`.input-notification`).css({'display': 'none' }); //removes notification on successful input
           $('.tweet-container').empty(); // Purges the old tweets from
           loadTweets(); //Re-loads the tweets again from the updated library
         },

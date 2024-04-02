@@ -1,4 +1,4 @@
-/* Styles associated with the tweets section*/
+/* Styles associated with each individual tweet entry*/
 
 .tweet-container .tweet{
   border: 5px solid grey;
@@ -13,16 +13,14 @@
 
 .tweet-container header{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0;
+  border: 3px dashed orange
 }
 
-.tweet-container header .handle{  
-  margin-left: 45%; 
-}
-
-.tweet-container header .person-title{  
-  margin-left: 5%; 
+.tweet-container header .profile-container{
+  width: 50%;
+  display:flex;
 }
 
 .tweet-container header img{
@@ -30,23 +28,41 @@
   height: 4em;
 }
 
+.tweet-container .handle{
+  color: #85afd6;
+  border: 3px dashed limegreen;
+}
+
+.tweet-container .person-title{
+  margin-left: 5%; 
+  border: 3px dashed red;
+}
+
 .tweet-container footer{
   display: flex;
   justify-content: space-between;
-  /* border: 5px solid peachpuff; */
+  border: 3px dashed rgb(216, 43, 213);
 }
 
 .tweet-container footer h6{
   margin: 0;
-  margin-right: 70%; /* Forces <i> elements to remaining 30% on right side */
 }
 
-.tweet-container .handle{
-color: #85afd6;
+.tweet-container i{
+  margin: 0 10px;
 }
 
 .tweet-container i:hover{
   color: #ffb700;
   text-shadow: 3px 3px  #636363;
   transition: all 0.2s ease-in;
+}
+
+.input-notification{
+  display: unset;
+}
+
+/* Weird hacky way of creating spaces within my notification typewriter */
+.input-notification h6{
+  color: #e61339;
 }
