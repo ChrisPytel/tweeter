@@ -4,10 +4,9 @@
 nav {
   color: white;
   height: 120px;
-  background: #4056A1;
   width: 100%;
   position: fixed;  
-  /* border: 2px dashed black; */
+  /* border: 3px dashed rgb(101, 247, 255); */
 }
 
 .nav-container{
@@ -16,7 +15,7 @@ nav {
   padding-left: 1.5em;    
   padding-right: 1.5em;
   padding-top: 1.5em;
-  /* outline: dashed 4px magenta; */  
+  /* border: dashed 3px magenta;   */
 }
 
 .nav-title { 
@@ -33,7 +32,34 @@ nav {
 }
 
 nav i{
-  padding-top: 0.25em;  
+  padding-top: 0.35em;  
   align-self: center;
   color: red;
+  animation: bounce 2s linear infinite;
+}
+
+@keyframes bounce{
+  15%, 50%, 80%,to{
+    transform: translateY(0);
+  }
+  30%{
+    transform: translateY(-15px);
+  }
+  70%{
+    transform: translateY(-7px);
+  }
+  90%{
+    transform: translateY(-3px);
+  }
+ }
+
+ @media only screen and (min-width: 1024px) {   /* Desktop sizing styles */
+  nav {
+    color: white;
+    height: 120px;
+    background: #4056A1;
+    width: 100%;
+    position: fixed;  
+    /* border: 3px dashed rgb(101, 247, 255); */
+  }
 }

@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="styles/tweet.css" type="text/css" />
 
+    <!-- Disables Viewport Zooming capability -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
@@ -44,38 +47,42 @@
       </div>
     </nav>
 
-    <header class ="orange-bg">
-      <div>
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <div>
-        <h2>Chris</h2>
-      </div>
-    </header>  
+    <div class="desktop-container">
+      
+      <header class="profile-header">
+        <div>
+            <img src="/images/profile-hex.png">
+        </div>
+        <div>
+          <h2>Your Name Here</h2>
+        </div>
+      </header>  
 
+      <main class="wrapper">
+
+        <div class="input-notification">
+          <!-- dynamically appended error message about the users form submission here -->
+        </div>
+
+        <section class="new-tweet">
+          <h2>Alright everyone listen up</h2>
+          <form id="tweet-form" method="POST" action="/tweets"> 
+            <textarea placeholder="Heres my message to the world..." name="text" id="tweet-text"></textarea>
+            <div class="divider"></div>
+            <div class="below-line">
+              <button id="tweet-button" class="tweet-button" type="submit">Tweet</button>
+              <output class="counter" name="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+
+        <section class="tweet-container">
+          <!-- dynamically append individual tweets here -->     
+        </section>             
   
-    <main class="wrapper">
-      <div class="input-notification">
-        <!-- dynamically appended notification about users form input here -->
-      </div>
-      <section class="new-tweet">
-        <h2>Alright everyone listen up</h2>
-        <form id="tweet-form" method="POST" action="/tweets"> 
-          <textarea placeholder="Heres my message to the world..." name="text" id="tweet-text"></textarea>
-          <div class="divider"></div>
-          <div class="below-line">
-            <button id="tweet-button" class="tweet-button" type="submit">Tweet</button>
-            <output class="counter" name="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
+      </main>
 
-      <section class="tweet-container">
-        <!-- dynamically append individual tweets here -->
-     
-      </section>             
- 
-    </main>
+    </div class="desktop-spit">
 
   </body>
 </html>

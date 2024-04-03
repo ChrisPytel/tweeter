@@ -1,7 +1,7 @@
 /* Styles associated with the header section*/
 /* AKA the big ORANGE section */
 
-.orange-bg{
+.profile-header{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,21 +9,40 @@
 
   height: 540px;
   width: 100%;
-  background-color: orange;
+  /* background-color: orange; */
+  background-color: #57b954;
   background-image: url("../images/ps-neutral.png"); 
   /* border: 2px dashed green; */
 }
 
-/* .orange-bg div{
-  outline: 2px black dashed;
-} */
-
-.orange-bg img{
-  padding-top: 140px;
+.profile-header div{
+  outline: 3px rgb(162, 103, 103) dashed;
 }
 
-.orange-bg h2{
+.profile-header img{
+  padding-top: 70px;
+}
+
+.profile-header h2{
   color: white;
-  padding: 0;
+  padding-top: 15px;
   margin: 0;
+}
+
+@media only screen and (min-width: 1024px) {   /* Desktop sizing styles */
+  
+  .profile-header {
+    border: 3px dashed orangered;
+    position: fixed;
+    margin-left: 50px;
+    margin-top: 50px;
+    width: 40vw;
+    height: 40vh;
+    min-height: 350px;
+  }  
+  
+  .profile-header img{
+    padding: 0;
+  }
+
 }

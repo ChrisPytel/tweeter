@@ -10,19 +10,19 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
+/* Global layout stuff  */
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: hwb(41 93% 0%);
   font-size: 24px;
-  font-family: "Source Sans 3", sans-serif; 
+  font-family: "Source Sans 3", sans-serif;   /* First checks if Bungee is available, falls back to Source Sans 3, then any sans-serif */
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
- 
- /* First checks if Bungee is available, falls back to Source Sans 3, then any sans-serif */
+ @media only screen and (min-width: 1024px) {   /* Splits view for dekstop sizing styles */ 
+  .desktop-container{
+    padding-top: 120px;
+    display: flex;
+    border: 5px dashed rgb(92, 77, 56);    
+  }  
+}

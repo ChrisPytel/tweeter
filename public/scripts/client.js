@@ -92,6 +92,7 @@ $(document).ready(function() {
   loadTweets(); // begins process of loading all tweets using AJAX logic
 
 
+  //Got creative and made a message writer instead of using jQuery .slideUp .slideDown methods
   const displayNotification = function(message) {
     $(`.input-notification`) //display the element and overrides styling
     .css({
@@ -126,9 +127,9 @@ $(document).ready(function() {
       displayNotification.msgWriteCount++; 
     } 
     else if(displayNotification.msgWriteCount > 0){
-      $(`.input-notification`).empty() //clears the last message
       displayNotification.msgWriteCount = 0;
-      displayNotification(message); //recursively sends back the message to re-render
+      $(`.input-notification`).empty() //clears the last message      
+      displayNotification(message);    //recursively sends back the message to re-render
     }
   };
 
@@ -143,14 +144,15 @@ $(document).ready(function() {
     // console.log(`Our this is: `, this); // the target of our event handler
     const $tweetInput = $(this).serialize();    
     console.log(`Our $tweetInput is:`, $tweetInput);
-    console.log(`Our $(this) is: `, $(this));
-    const tweetText = $(this).find('textarea').val().trim();
-
+    // console.log(`Our $(this) is: `, $(this));
+    const tweetText = $(this).find('textarea').val().trim(); //handles empty inputs and tweets composed of only spaces
+    console.log(`Our tweetText is: `, tweetText);
+    
     if (tweetText.length === 0) {      
       // alert("Cannot submit an empty tweet!");  //old alert message
       displayNotification("Cannot submit an empty tweet!");
 
-    } else if ($tweetInput.length > 140) {
+    } else if (tweetText.length > 140) {
       // alert("Tweet is over the character limit!");   //old alert message
       displayNotification("Tweet is over the character limit!");
     } else {

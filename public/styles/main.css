@@ -7,7 +7,7 @@
   /* border: solid greenyellow; */
 }
 
-.centered{
+/* .centered{                      unused styles, check again later
   text-align: center;
   justify-content: center;
   color: #331dc2;
@@ -22,4 +22,17 @@ main a{
   font-weight: 700;
   color: #333;
   text-transform: uppercase;
+} */
+
+
+@media only screen and (min-width: 1024px) {   /* Desktop sizing styles */
+ 
+  .wrapper {
+    border: 3px dashed fuchsia;
+    width: 90%;
+    /* padding-left: 50%; */
+    background-color: inherit;
+  }
+  
+  
 }
