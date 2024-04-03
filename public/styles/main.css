@@ -28,9 +28,9 @@ main a{
 @media only screen and (min-width: 1024px) {   /* Desktop sizing styles */
  
   .wrapper {
-    border: 3px dashed fuchsia;
-    width: 90%;
-    /* padding-left: 50%; */
+    /* border: 3px dashed fuchsia; */
+    width: 95%;
+    padding-left: 50vw;
     background-color: inherit;
   }
   

@@ -16,7 +16,7 @@
 }
 
 .profile-header div{
-  outline: 3px rgb(162, 103, 103) dashed;
+  /* outline: 3px rgb(162, 103, 103) dashed; */
 }
 
 .profile-header img{
@@ -32,13 +32,13 @@
 @media only screen and (min-width: 1024px) {   /* Desktop sizing styles */
   
   .profile-header {
-    border: 3px dashed orangered;
+    /* border: 3px dashed orangered; */
     position: fixed;
     margin-left: 50px;
     margin-top: 50px;
     width: 40vw;
     height: 40vh;
-    min-height: 350px;
+    /* min-height: 350px; */
   }  
   
   .profile-header img{

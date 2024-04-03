@@ -23,6 +23,6 @@ body {
   .desktop-container{
     padding-top: 120px;
     display: flex;
-    border: 5px dashed rgb(92, 77, 56);    
+    /* border: 5px dashed rgb(92, 77, 56);     */
   }  
 }
