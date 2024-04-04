@@ -145,17 +145,18 @@ $(document).ready(function() {
     } 
   };
 
+  //------------------  Section for Listeners ------------------
+
   //listens for scroll to dynamically change nav opacity
-  $(window).on('scroll', ()=>{
+  $(document).on('scroll', ()=>{
     navVisibilityToggle(`scroll event`);
   }); 
 
   //catches any nav display errors if we resize our window horizontally
-  $(window).on('resize', ()=>{
+  $(document).on('resize', ()=>{
     navVisibilityToggle(`resize event`);
   });
 
-  //------------------  Section for Listeners ------------------
 
   //listens for when submit is called on the button corresponding to the form
   $('#tweet-form').on('submit', function(event) {
