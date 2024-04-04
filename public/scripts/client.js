@@ -143,7 +143,6 @@ $(document).ready(function() {
         method: 'POST',  // HTTP methods are: 'GET', 'POST', 'PUT', 'DELETE'
         data: $tweetInput,
         success: function() {
-          console.log(`$.ajax POST the following data to our '${this.url}' route:\n`, this.data);
           $(`.input-notification`).css({'display': 'none' }); //removes notification on successful input
           $('.tweet-container').empty(); // Purges the old tweets from
           loadTweets(); //Re-loads the tweets again from the updated library
