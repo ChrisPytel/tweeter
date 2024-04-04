@@ -1,52 +1,39 @@
 /* Styles associated with the Nav-bar at the top */
-/* AKA the blue bar at the top */
 
 nav {
   color: white;
   height: 120px;
   width: 100%;
   position: fixed;  
-  /* border: 3px dashed rgb(101, 247, 255); */
   transition: background-color 0.3s ease;
-
 }
-
-/* Additional styles applied when scrolled */
-
 .nav-container{
   display: flex;
-  justify-content: space-between;    
-  padding-left: 1.5em;    
+  justify-content: space-between;
+  padding-left: 1.5em;
   padding-right: 1.5em;
   padding-top: 1.5em;
-  /* border: dashed 3px magenta;   */
 }
-
 .nav-hidden {
   display: none;
   transition: background-color 0.5s ease;
 }
-
 .nav-title { 
-  font-family: "Bungee", "Source Sans 3", sans-serif;     
-  font-weight: 400;  
+  font-family: "Bungee", "Source Sans 3", sans-serif;
+  font-weight: 400;
   font-size: 2em;
 }
-
 .nav-new-tweet{
   display:flex;
   flex-direction: column;
   font-size: 1em;
-  /* outline: 3px solid cyan;   */
 }
-
 nav i{
   padding-top: 0.35em;  
   align-self: center;
   color: red;
   animation: bounce 2s linear infinite;
 }
-
 @keyframes bounce{
   15%, 50%, 80%,to{
     transform: translateY(0);
@@ -61,7 +48,6 @@ nav i{
     transform: translateY(-3px);
   }
  }
-
  @media only screen and (min-width: 1024px) {   /* Desktop sizing styles */
   nav {
     color: white;
@@ -70,6 +56,5 @@ nav i{
     width: 100%;
     position: fixed;  
     transition: background-color 0.5s ease;
-    /* border: 3px dashed rgb(101, 247, 255); */
   }
 }

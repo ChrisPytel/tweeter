@@ -4,36 +4,16 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// const tweetLengthCap = require('./composer-char-counter'); //couldnt import correctly???
-
 $(document).ready(function() {
-
-
 
   //------------------  Section for Functions ------------------
 
-  //Cross side scripting (XSS) escape function demo'd by LHL
-  // const escape = function (str) {
-  //   let div = document.createElement("div");
-  //   div.appendChild(document.createTextNode(str));
-  //   console.log("After Re-encoding, processed text is:\n", div.innerHTML);
-  //   return div.innerHTML;
-  // };
-
-  /* After Re-encoding, processed text is:
-  
-  &lt;script&gt;
-   $("body").empty();
-   &lt;/script&gt;
-  */
-
-  //My version of the XSS escape 
+  //My version of the XSS escape function
   const myEsapeFn = function(string) {
     return string.replace(/</g, "&lt;").replace(/>/g, "&gt;");
   };
   
-
-  //for creating the HTML markup to be appended later to the webpage
+  //Creates the HTML markup to be appended later to the HTML
   const createTweetElement = function(tweetObj) {
     const markupStructure = $(`
   <article class="tweet">
@@ -59,29 +39,22 @@ $(document).ready(function() {
     </footer> 
   </article>
   `);
-    // console.log(`Our markupStructure is: `, markupStructure);
     return markupStructure;
   };
 
-
   const renderTweets = function(allTweets) {
-  // console.log(`tweetLibrary is: `, allTweets);
-    allTweets.forEach((tweet,index) => {
-      // console.log(`Tweet #${index + 1} is:`, tweet);
-      const element = createTweetElement(tweet); 
+    allTweets.forEach((tweet) => {
+      const element = createTweetElement(tweet);
       $('.tweet-container').prepend(element); // takes return value and appends it to the top of the tweets container
     });
   };
 
-
   const loadTweets = function() {
-  $.ajax({
+    $.ajax({
       url: `/tweets`,
       method: 'GET',
       success: function(tweetLibraryData) {
-        console.log(`tweetLibraryData is: `, tweetLibraryData);
         renderTweets(tweetLibraryData);   // passes in library data to render instead of temporary code
-        // renderTweets(tempTweetData);     // begins process of loading all tweets (BEFORE AJAX)
       },
       error: function(error) {
         console.error(`$.ajax ${this.method} request error on route: ${this.url}!\nDetails:`, error);
@@ -92,22 +65,21 @@ $(document).ready(function() {
   loadTweets(); // begins process of loading all tweets using AJAX logic
 
 
-  //Got creative and made a message writer instead of using jQuery .slideUp .slideDown methods
+  //Got creative and made a notification renderer instead of using jQuery .slideUp .slideDown methods
   const displayNotification = function(message) {
-    $(`.input-notification`) //display the element and overrides styling
-    .css({
-      'display': 'flex',
-      'justify-content': 'center',
-      'align-items': 'center',
-      'margin': '30px 0',
-      'height': '60px',
-      'background-color': '#e61339',
-      'color': 'white',
-      'font-size': '1em',
-      'letter-spacing' : '2px',
-      'border-radius': '12px'
-    });
-
+    $(`.input-notification`) //display the element and overrides the hidden styling
+      .css({
+        'display': 'flex',
+        'justify-content': 'center',
+        'align-items': 'center',
+        'margin': '30px 0',
+        'height': '60px',
+        'background-color': '#e61339',
+        'color': 'white',
+        'font-size': '1em',
+        'letter-spacing' : '2px',
+        'border-radius': '12px'
+      });
     let initialDelay = 0; //delay before writing begins
     let writeSpeed = 50;
     
@@ -116,33 +88,30 @@ $(document).ready(function() {
       displayNotification.msgWriteCount = 0;
       for (const char of message) {
         setTimeout(() => {
-          if(char === " "){
+          if (char === " ") {
             $(`.input-notification`).append(`<h6>_</h6>`);
-          }else{
+          } else {
             $(`.input-notification`).append(`<p>${char}</p>`);
           }
-        }, initialDelay)  
+        }, initialDelay);
         initialDelay = initialDelay + writeSpeed;
-      }  
-      displayNotification.msgWriteCount++; 
-    } 
-    else if(displayNotification.msgWriteCount > 0){
+      }
+      displayNotification.msgWriteCount++;
+    } else if (displayNotification.msgWriteCount > 0) {
       displayNotification.msgWriteCount = 0;
-      $(`.input-notification`).empty() //clears the last message      
+      $(`.input-notification`).empty(); //clears the last message
       displayNotification(message);    //recursively sends back the message to re-render
     }
   };
 
-  const navVisibilityToggle = function(typeOfEvent) {
-    console.log(`navVisibilityToggle is responding to: `, typeOfEvent);
+  const navVisibilityToggle = function() {
     const scrollAmount = window.scrollY;
     const windowWidth = window.innerWidth;
-    console.log(`Our scrollAmount is: `, scrollAmount, `\nOur windowWidth is: `, windowWidth);
     if (scrollAmount > 300 && windowWidth < 1024) {
-      document.querySelector('.nav-container').classList.add('nav-hidden') ;      
+      document.querySelector('.nav-container').classList.add('nav-hidden');
     }  else {
-      document.querySelector('.nav-container').classList.remove('nav-hidden'); 
-    } 
+      document.querySelector('.nav-container').classList.remove('nav-hidden');
+    }
   };
 
   //------------------  Section for Listeners ------------------
@@ -150,51 +119,40 @@ $(document).ready(function() {
   //listens for scroll to dynamically change nav opacity
   $(document).on('scroll', ()=>{
     navVisibilityToggle(`scroll event`);
-  }); 
+  });
 
   //catches any nav display errors if we resize our window horizontally
   $(document).on('resize', ()=>{
     navVisibilityToggle(`resize event`);
   });
 
-
   //listens for when submit is called on the button corresponding to the form
   $('#tweet-form').on('submit', function(event) {
-    console.log("Handler for `submit` called.");
     event.preventDefault();
 
-    // console.log(`Our this is: `, this); // the target of our event handler
-    const $tweetInput = $(this).serialize();    
-    console.log(`Our $tweetInput is:`, $tweetInput);
-    // console.log(`Our $(this) is: `, $(this));
     const tweetText = $(this).find('textarea').val().trim(); //handles empty inputs and tweets composed of only spaces
-    console.log(`Our tweetText is: `, tweetText);
+    const $tweetInput = $(this).serialize(); //the actual data to be posted
     
-    if (tweetText.length === 0) {      
-      // alert("Cannot submit an empty tweet!");  //old alert message
+    if (tweetText.length === 0) {
       displayNotification("Cannot submit an empty tweet!");
-
     } else if (tweetText.length > 140) {
-      // alert("Tweet is over the character limit!");   //old alert message
       displayNotification("Tweet is over the character limit!");
     } else {
       $.ajax({
         url: `/tweets`,
         method: 'POST',  // HTTP methods are: 'GET', 'POST', 'PUT', 'DELETE'
         data: $tweetInput,
-        success: function(){
+        success: function() {
           console.log(`$.ajax POST the following data to our '${this.url}' route:\n`, this.data);
           $(`.input-notification`).css({'display': 'none' }); //removes notification on successful input
           $('.tweet-container').empty(); // Purges the old tweets from
           loadTweets(); //Re-loads the tweets again from the updated library
         },
-        error: function(error){
+        error: function(error) {
           console.error(`$.ajax ${this.method} request error on route: ${this.url}!\nDetails:`, error);
         }
       });
-      // $.post('/tweets', $tweetInput, console.log('sent to /tweets'));  //jquery POST shorthand without error handling
-    }      
-    
-  }); // --------- end of #tweet-form listener ---------  
+    }    
+  }); // --------- end of #tweet-form listener ---------
   
 }); // --------- end of $(document).ready ---------

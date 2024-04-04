@@ -14,7 +14,7 @@ html {
 
 body {
   color: #545149;
-  background-color: hwb(41 93% 0%);
+  background-color: #fff9ed;
   font-size: 24px;
   font-family: "Source Sans 3", sans-serif;   /* First checks if Bungee is available, falls back to Source Sans 3, then any sans-serif */
 }
@@ -23,6 +23,5 @@ body {
   .desktop-container{
     padding-top: 120px;
     display: flex;
-    /* border: 5px dashed rgb(92, 77, 56);     */
   }  
 }

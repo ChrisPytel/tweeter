@@ -1,28 +1,18 @@
 /* Styles associated with the header section*/
-/* AKA the big ORANGE section */
 
 .profile-header{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   height: 540px;
   width: 100%;
-  /* background-color: orange; */
   background-color: #57b954;
   background-image: url("../images/ps-neutral.png"); 
-  /* border: 2px dashed green; */
 }
-
-.profile-header div{
-  /* outline: 3px rgb(162, 103, 103) dashed; */
-}
-
 .profile-header img{
   padding-top: 70px;
 }
-
 .profile-header h2{
   color: white;
   padding-top: 15px;
@@ -30,19 +20,14 @@
 }
 
 @media only screen and (min-width: 1024px) {   /* Desktop sizing styles */
-  
   .profile-header {
-    /* border: 3px dashed orangered; */
     position: fixed;
     margin-left: 50px;
     margin-top: 50px;
     width: 40vw;
     height: 40vh;
-    /* min-height: 350px; */
-  }  
-  
+  }
   .profile-header img{
     padding: 0;
   }
-
 }

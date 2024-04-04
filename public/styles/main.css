@@ -1,38 +1,15 @@
 /* Styles associated with the main section*/
 
 .wrapper { /* leaves 10% margin on either sides of element and centers it*/
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   background-color: inherit;
-  /* border: solid greenyellow; */
 }
 
-/* .centered{                      unused styles, check again later
-  text-align: center;
-  justify-content: center;
-  color: #331dc2;
-}
-
-main a{
-  background-color: #16D6D1;
-  border: none;
-  padding: 15px 20px;
-  border-radius: 12px;
-  font-size: 19px;
-  font-weight: 700;
-  color: #333;
-  text-transform: uppercase;
-} */
-
-
-@media only screen and (min-width: 1024px) {   /* Desktop sizing styles */
- 
+@media only screen and (min-width: 1024px) {   /* Desktop sizing styles */ 
   .wrapper {
-    /* border: 3px dashed fuchsia; */
     width: 95%;
     padding-left: 50vw;
     background-color: inherit;
-  }
-  
-  
+  }  
 }
