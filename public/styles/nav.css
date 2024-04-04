@@ -7,7 +7,11 @@ nav {
   width: 100%;
   position: fixed;  
   /* border: 3px dashed rgb(101, 247, 255); */
+  transition: background-color 0.3s ease;
+
 }
+
+/* Additional styles applied when scrolled */
 
 .nav-container{
   display: flex;
@@ -16,6 +20,11 @@ nav {
   padding-right: 1.5em;
   padding-top: 1.5em;
   /* border: dashed 3px magenta;   */
+}
+
+.nav-hidden {
+  display: none;
+  transition: background-color 0.5s ease;
 }
 
 .nav-title { 
@@ -60,6 +69,7 @@ nav i{
     background: #4056A1;
     width: 100%;
     position: fixed;  
+    transition: background-color 0.5s ease;
     /* border: 3px dashed rgb(101, 247, 255); */
   }
 }
