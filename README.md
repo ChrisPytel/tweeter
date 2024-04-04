@@ -1,10 +1,11 @@
-# Tweeter Project
+# Tweeter Project 
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a basic single page app, meant to be a clone of Twitter. 💬
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
+Initial code was forked from starter code from Lighthouse Labs. This was an excellent challenge for sharpening my experience in the frontend workflow (HTML, CSS, Javascript) as well Express, jQuery and AJAX~.
 
-## Getting Started
+
+## Running Tweeter
 
 1. [Create](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) a new repository using this repository as a template.
 2. Clone your repository onto your local device.
@@ -13,6 +14,27 @@ This repository is the starter code for the project: Students will fork and clon
 4. Go to <http://localhost:8080/> in your browser.
 
 ## Dependencies
+Requires these modules at Minimum:
 
-- Express
-- Node 5.10.x or above
+- Express v 4.13.4
+- Node v 5.10.x
+- Chance v 1.0.2
+- Body-parser v1.15.2
+- MD5 v 2.1.0
+<br><br>
+
+# Preview Tweeter In Action 
+Below are a few clips to demonstrate how Tweeter looks and behaves for an end user. Click to see each segment being showcased.
+
+### Reactive Breakpoints Demo Clip
+[![Tweeter Reactive Breakpoints](./public/images/tweeter01.JPG)](https://webmshare.com/play/dGRvO)
+### Message Submission Video
+[![Tweeter Message Submission](./public/images/tweeter02.JPG)](https://webmshare.com/play/VbeGZ)
+### Mobile Layout Video Demo
+[![Tweeter Mobile View Scrolling](./public/images/tweeter03.JPG)](https://webmshare.com/play/qOQ5z)
+
+<!-- 
+![Tweeter Reactive Breakpoints](https://imgur.com/a/0fAk07u)
+![Tweeter Message Submission](https://imgur.com/a/ewGtvzD)
+![Tweeter Mobile View Scrolling](https://imgur.com/a/CmzVGzx) 
+-->
