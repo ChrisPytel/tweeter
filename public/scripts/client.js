@@ -133,6 +133,27 @@ $(document).ready(function() {
     }
   };
 
+  const navVisibilityToggle = function(typeOfEvent) {
+    console.log(`navVisibilityToggle is responding to: `, typeOfEvent);
+    const scrollAmount = window.scrollY;
+    const windowWidth = window.innerWidth;
+    console.log(`Our scrollAmount is: `, scrollAmount, `\nOur windowWidth is: `, windowWidth);
+    if (scrollAmount > 300 && windowWidth < 1024) {
+      document.querySelector('.nav-container').classList.add('nav-hidden') ;      
+    }  else {
+      document.querySelector('.nav-container').classList.remove('nav-hidden'); 
+    } 
+  };
+
+  //listens for scroll to dynamically change nav opacity
+  $(window).on('scroll', ()=>{
+    navVisibilityToggle(`scroll event`);
+  }); 
+
+  //catches any nav display errors if we resize our window horizontally
+  $(window).on('resize', ()=>{
+    navVisibilityToggle(`resize event`);
+  });
 
   //------------------  Section for Listeners ------------------
 
@@ -171,25 +192,8 @@ $(document).ready(function() {
         }
       });
       // $.post('/tweets', $tweetInput, console.log('sent to /tweets'));  //jquery POST shorthand without error handling
-    }
+    }      
     
-
   }); // --------- end of #tweet-form listener ---------  
-
-
-  //listens for scroll to dynamically change nav opacity
-  $(window).on('scroll', function(event){
-    const scrollAmount = window.scrollY;
-    const windowSize = window.innerWidth;
-    console.log(`Our scrollAmount is: `, scrollAmount);
-    console.log(`Our windowSize is: `, windowSize);
-    if (scrollAmount > 300 && windowSize < 1024) {
-      console.log(`scrolled past limit for mobile size`);
-      document.querySelector('.nav-container').classList.add('nav-hidden') ;      
-    }  else {
-      console.log(`under limit`);
-      document.querySelector('.nav-container').classList.remove('nav-hidden'); 
-    }  
-  }); 
   
 }); // --------- end of $(document).ready ---------
