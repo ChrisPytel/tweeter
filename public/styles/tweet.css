@@ -46,6 +46,10 @@
 .input-notification{
   display: unset;
 }
-.input-notification h6{ /* Weird hacky solution to rendering spaces within my notification typewriter */
-  color: #e61339;
+.input-notification h6{   /* Hacky solution to rendering spaces in the notification typewriter */
+  color: #e61339;       /* Matches color of underscores to parent bg-color */
 }
+ .rendered-msg{   
+  word-wrap: break-word;
+  overflow: hidden;
+} 

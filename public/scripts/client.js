@@ -25,7 +25,7 @@ $(document).ready(function() {
       <h3 class="handle">${tweetObj.user.handle}</h3>
     </header>
     <div>
-      <p>${myEsapeFn(tweetObj.content.text)}</p>
+      <p class ="rendered-msg">${myEsapeFn(tweetObj.content.text)}</p>
     </div>
     <div class="divider">
     </div>
@@ -131,12 +131,23 @@ $(document).ready(function() {
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
 
-    const tweetText = $(this).find('textarea').val().trim(); //handles empty inputs and tweets composed of only spaces
-    const $tweetInput = $(this).serialize(); //the actual data to be posted
+    /* Major: Text count is not consistent. If you decide to apply trim(), 
+    make sure you apply on the text count as well.
+    Right now, it is possible that you are able to post a tweet if it is <140 after trimming,
+    but the text count still show RED negative number,
+    because your character count did not apply on the trimmed text */
+
+    const rawvalue = $(this).find('textarea').val();              //raw input
+    const trimmedText = $(this).find('textarea').val().trim();    //handles empty inputs and tweets composed of only spaces
+    const $tweetInput = $(this).serialize();                      //the actual data to be posted
     
-    if (tweetText.length === 0) {
+    console.log(`Our rawvalue is: [${rawvalue}] length: ${rawvalue.length}`);
+    console.log(`Our trimmedText is: [${trimmedText}] length: ${trimmedText.length}`);
+    console.log(`Our $dataToPOST is: `, $tweetInput);
+    
+    if (trimmedText.length === 0) {
       displayNotification("Cannot submit an empty tweet!");
-    } else if (tweetText.length > 140) {
+    } else if (trimmedText.length > 140) {
       displayNotification("Tweet is over the character limit!");
     } else {
       $.ajax({
