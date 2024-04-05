@@ -137,17 +137,13 @@ $(document).ready(function() {
     but the text count still show RED negative number,
     because your character count did not apply on the trimmed text */
 
-    const rawvalue = $(this).find('textarea').val();              //raw input
-    const trimmedText = $(this).find('textarea').val().trim();    //handles empty inputs and tweets composed of only spaces
-    const $tweetInput = $(this).serialize();                      //the actual data to be posted
-    
-    console.log(`Our rawvalue is: [${rawvalue}] length: ${rawvalue.length}`);
-    console.log(`Our trimmedText is: [${trimmedText}] length: ${trimmedText.length}`);
-    console.log(`Our $dataToPOST is: `, $tweetInput);
-    
-    if (trimmedText.length === 0) {
+    const rawInput = $(this).find('textarea').val();         //raw input
+    const trimmedText = rawInput.trim();                     //handles empty inputs and tweets composed of only spaces
+    const $tweetInput = $(this).serialize();                 //the actual data to be posted 
+
+    if (rawInput.length === 0 || trimmedText.length === 0) {
       displayNotification("Cannot submit an empty tweet!");
-    } else if (trimmedText.length > 140) {
+    } else if (rawInput.length > 140) {
       displayNotification("Tweet is over the character limit!");
     } else {
       $.ajax({
