@@ -54,6 +54,7 @@ $(document).ready(function() {
       url: `/tweets`,
       method: 'GET',
       success: function(tweetLibraryData) {
+        $('.tweet-container').empty(); // Purges any old tweets from html
         renderTweets(tweetLibraryData);   // passes in library data to render instead of temporary code
       },
       error: function(error) {
@@ -144,7 +145,6 @@ $(document).ready(function() {
         data: $tweetInput,
         success: function() {
           $(`.input-notification`).css({'display': 'none' }); //removes notification on successful input
-          $('.tweet-container').empty(); // Purges the old tweets from
           loadTweets(); //Re-loads the tweets again from the updated library
         },
         error: function(error) {
