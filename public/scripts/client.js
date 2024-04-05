@@ -54,8 +54,9 @@ $(document).ready(function() {
       url: `/tweets`,
       method: 'GET',
       success: function(tweetLibraryData) {
-        $('.tweet-container').empty(); // Purges any old tweets from html
-        renderTweets(tweetLibraryData);   // passes in library data to render instead of temporary code
+        $("#tweet-form")[0].reset();   // alternatively could use plain JS document.getElementById("tweet-form").reset();
+        $('.tweet-container').empty(); // Purges any old tweets from html        
+        renderTweets(tweetLibraryData);   // passes in library data to render instead of temporary code 
       },
       error: function(error) {
         console.error(`$.ajax ${this.method} request error on route: ${this.url}!\nDetails:`, error);
